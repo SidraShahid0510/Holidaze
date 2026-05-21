@@ -106,4 +106,4 @@ npm install -D tailwindcss postcss autoprefixer
 
 ## Project Link
 
-[Holidaze live link]()
+[Holidaze live link](https://holidaze-pe.netlify.app/)
