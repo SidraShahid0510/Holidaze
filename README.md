@@ -1,4 +1,5 @@
 # Holidaze
+![image alt](https://github.com/SidraShahid0510/Holidaze/blob/main/holidaze-image.jpg?raw=true)
 
 Holidaze is a modern venue booking web application.It allows users to browse, search, and book venues, while venue managers can create and manage their own listings.
 
