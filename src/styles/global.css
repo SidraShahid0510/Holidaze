@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-[#303437];
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+
+/* Typography */
+.main-heading,
+.hero-heading,
+.venue-card-heading,
+.deal-card-heading,
+.auth-heading {
+  font-family: "Playfair Display", serif;
+}
+
+.main-heading,
+.auth-heading {
+  @apply text-2xl font-bold text-[#303437] md:text-3xl lg:text-[2rem];
+}
+
+.hero-heading {
+  @apply px-3 text-2xl font-semibold text-[#303437] md:text-4xl lg:text-[4rem];
+}
+
+.body-text {
+  @apply text-[#303437];
+  font-size: 0.9rem;
+}
+
+.booking-text {
+  @apply text-base font-medium;
+}
+
+.venue-card-heading {
+  @apply text-lg font-medium text-[#303437];
+}
+
+.deal-card-heading {
+  @apply text-[1.75rem] font-medium text-white;
+}
+
+.deal-card-discount {
+  @apply text-[5.5rem] font-bold text-white;
+}
+
+/* Colors */
+.text-primary-col {
+  @apply text-[#303437];
+}
+
+.text-secondary-col {
+  @apply text-[#cea022];
+}
+
+.bg-primary {
+  @apply bg-[#f9f5f0];
+}
+
+.bg-secondary {
+  @apply bg-[#cea022];
+}
+
+.border-secondary {
+  @apply border-[#cea022];
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-[#303437] text-white text-[0.9rem] font-semibold transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-[#cea022] text-[#303437];
+}
+
+/* Navigation */
+.nav-links {
+  @apply relative font-semibold text-[#303437];
+}
+
+.nav-links::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 h-0.5 w-0 bg-[#cea022] transition-all duration-300;
+}
+
+.nav-links:hover::after {
+  @apply w-full;
+}
+
+/* Forms */
+.form-label {
+  @apply mb-2 block text-[0.9rem] font-medium text-[#303437];
+}
+
+@layer components {
+  .input-field {
+    @apply w-full border border-[#c9b39a] px-3 py-2 text-[0.9rem] text-[#303437] outline-none;
+  }
+
+  .input-field:focus {
+    @apply border-[#c9b39a] shadow-[0_0_0_2px_#c9b39a];
+  }
+}
+
+/* Deal tags */
+.deal-tag {
+  @apply rounded-full bg-black/70 text-[13px] font-normal text-white;
+}
+
+/* Footer */
+.footer-link,
+.footer-item {
+  @apply text-white/80 transition-colors duration-300;
+}
+
+.footer-item {
+  @apply cursor-pointer;
+}
+
+.footer-link:hover,
+.footer-item:hover {
+  @apply text-white;
+}
+
+/* Scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* React Day Picker */
+.rdp {
+  --rdp-accent-color: #cea022;
+  --rdp-accent-background-color: #f3f0eb;
+
+  width: fit-content;
+  max-width: 100%;
+  font-size: 12px;
+}
+
+.rdp-month,
+.rdp-month_grid {
+  width: fit-content;
+}
+
+.rdp-month_caption {
+  @apply grid w-full items-center;
+  grid-template-columns: 2rem 1fr 2rem;
+}
+
+.rdp-caption_label {
+  grid-column: 2;
+  text-align: center;
+}
+
+.rdp-nav {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  @apply flex w-full justify-between;
+}
+
+.rdp-button_previous,
+.rdp-button_next {
+  pointer-events: auto;
+}
+
+.rdp-weekdays,
+.rdp-week {
+  @apply grid;
+  grid-template-columns: repeat(7, 2.15rem);
+}
+
+.rdp-day,
+.rdp-day_button {
+  @apply text-[12px] font-medium;
+}
+
+.rdp-day_button {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 0 !important;
+}
+
+.rdp-disabled {
+  @apply cursor-not-allowed opacity-35 no-underline;
+}
+
+.rdp-chevron {
+  fill: #cea022;
+}
+
+.rdp-range_start .rdp-day_button,
+.rdp-range_end .rdp-day_button {
+  @apply border-none bg-[#cea022] text-[#0b1a44];
+}
+
+.rdp-range_middle .rdp-day_button {
+  @apply bg-gray-300 text-[#0b1a44];
+}
+
+.rdp-today .rdp-day_button {
+  @apply border border-[#cea022] bg-transparent text-[#0b1a44];
+}
+
+.rdp-day_button:focus-visible,
+.rdp-button_next:focus-visible,
+.rdp-button_previous:focus-visible {
+  @apply outline outline-2 outline-[#cea022];
+}
+
+.booked-day .rdp-day_button {
+  @apply cursor-not-allowed bg-[#d6d2ca] text-[#303437];
+}
+
+/* Responsive calendar */
+@media (min-width: 768px) {
+  .rdp,
+  .rdp-day,
+  .rdp-day_button {
+    font-size: 14px;
+  }
+
+  .rdp-weekdays,
+  .rdp-week {
+    grid-template-columns: repeat(7, 2.3rem);
+  }
+
+  .rdp-day_button {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rdp,
+  .rdp-day,
+  .rdp-day_button {
+    font-size: 15px;
+  }
+
+  .rdp-weekdays,
+  .rdp-week {
+    grid-template-columns: repeat(7, 2.5rem);
+  }
+
+  .rdp-day_button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rdp {
+    padding: 0.5rem;
+  }
+
+  .rdp-day_button {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+}
