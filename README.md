@@ -34,7 +34,7 @@ Holidaze is a modern venue booking web application.It allows users to browse, se
 - Lucide React
 - React Icons
 
-## Intallation
+## Installation
 
 ### Clone the repository
 
